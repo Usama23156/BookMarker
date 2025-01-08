@@ -1,0 +1,273 @@
+/* sm pag  */
+@media (min-width:600px){
+    .home-pag .content h2 {
+        padding: 0px 29px;
+        margin-top: 60px;
+    }
+}
+/* mid pag  */
+@media (min-width:768px){
+    .home-pag .content h2 {
+        padding: 0px 120px;
+    }
+    /* chefs  */
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        width: 100%;
+    }
+    .card .chef-img::before{
+        content: "";
+        background-image: url(../img/chefs/team-shape.svg);
+        height: 60px;
+        width: 100%;
+        background-repeat:repeat-x;
+        position: absolute;
+        bottom: 190px;
+    }
+    .card-content{
+        padding: 0px 15px 25px 15px;
+        margin-bottom: 80px;
+    }
+    .card h6 {
+        font-size: small;
+        color: #7f7f90;
+        margin-top: 5px;
+    }
+    .card{
+        width: 47%;
+    }
+    .card p {
+        font-size: 15px;
+        margin-bottom: 50px;
+     }
+     /* gallery  */
+     .gallery-photos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+     .gallery-photos picture{
+        width: 47%;
+    }
+     /* .steak{
+        order: 2;
+     }
+     .pizza{
+        order: 1;
+        flex-shrink: 1;
+     }
+     .pizza-slices{
+
+     }
+     .Frittata{
+
+     }
+     .burger{
+       order: 3;
+     }
+     .fried{
+
+     }
+     .kofta{
+
+     } */
+     /* contact us  */
+     .details {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+    .details .address,
+    .details .email,
+    .details .call-us,
+    .details .hours {
+       width: 49%;
+    }
+    /* footer  */
+    .foot-pag{
+        padding: 45px 35px 25px 35px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .about{
+        width: 50%;
+        padding: 10px;
+        order: 1;
+    }
+    .Subscribe {
+        order: 3;
+    }
+    .Subscribe .Newsletter .sub-mail{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    .Newsletter .sub-mail input{
+        height: 42px;
+        width: 580px;
+    }
+    .contact-details{
+        order: 2;
+        width: 49%;
+    }
+}
+/* lg pag  */
+@media (min-width:1024px){
+      /* navbar  */
+      .navbar{
+        padding: 25px 70px;
+    }
+      .navbar .logo::after{
+        bottom: 5px;
+    }
+      .nav{
+        display: flex;
+        flex-direction: row;
+        gap: 350px;
+    }
+    .links ul {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        gap: 25px;
+        font-size:18px;
+        font-weight: 600;
+    }
+    /* home  */
+    .home-pag{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content:space-between;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+    .home-pag .content h2 {
+        padding: 0px;
+    }
+    .home-pag .content{
+        width: 40%;
+        text-align: left;
+        padding-top: 30px;
+    }
+    .home-pag .home-img{
+        width: 40%;
+    }
+    .home-pag .content .btn{
+        justify-content: start;
+    }
+    .btn .main-btn {
+        border-radius: 0px 100vh 100vh;
+    }
+    /* chefs  */
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 40px;
+    }
+    .card .chef-img::before{
+        content: "";
+        background-image: url(../img/chefs/team-shape.svg);
+        background-size: contain;
+        height: 60px;
+        width: 100%;
+        background-repeat:repeat-x;
+        position: absolute;
+        bottom: 200px;
+        margin: 0%;
+        padding: 0%;
+    }
+    /* gallery  */
+    .gallery-photos {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 1000px;
+    }
+    .gallery-photos picture{
+        width: 30%;
+    }
+    /* contact us  */
+    .details{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .details .address,
+    .details .email,
+    .details .call-us,
+    .details .hours {
+        width: 48%;
+   }
+   .contact-us form .personal {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.contact-us form .btn {
+    margin-top: 50px;
+}
+/* footer  */
+footer .foot-pag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 30px 50px 0px 50px;
+}
+.about{
+    width: 30%;
+    padding: 10px;
+    order: 1;
+}
+.Subscribe{
+    width: 65%;
+    padding: 20px;
+    order: 2;
+}
+.Subscribe .Newsletter .sub-mail{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+.Newsletter .sub-mail input{
+    height: 42px;
+    width: 430px;
+}
+.contact-details h3{
+    margin: 10px 0px;
+}
+.contact-details ul li{
+    margin-bottom: -3px
+}
+.contact-details{
+    width: 30%;
+}
+.contact-details ul li{
+    padding: 8px 0px;
+    align-items: center;
+}
+footer .about .head h2::after{
+    top: 40px;
+}
+footer .about h3::after{
+    top: 190px;
+}
+footer .about .social-icons{
+    gap: 40px;
+}
+}
+/* xl pag  */
+@media (min-width:1280px){
+
+}
