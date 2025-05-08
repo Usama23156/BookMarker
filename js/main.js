@@ -1,94 +1,72 @@
-var bookName = document.getElementById("bookmarkName");
-var bookURL = document.getElementById("bookmarkURL");
-var closeBtn = document.getElementById("closeBtn");
-var boxModal = document.getElementById("alert");
+var data = [];
+var counter = 0;
 
-var allbooks = [];
+    
 
+if (localStorage.getItem("data") != null) {
+  data = JSON.parse(localStorage.getItem("data"));
 
-if (localStorage.getItem("allbooks") != null) {
-  allbooks = JSON.parse(localStorage.getItem("allbooks"));
-
-  display();
+  b();
 }
 
-
-function getValues() {
-  if (validationbookName() == true && validationbookURL() == true) {
-  var book = {
-    bookmarkName: bookName.value,
-    bookmarkURL: bookURL.value,
-  }
-  allbooks.push(book);
-  localStorage.setItem("allbooks", JSON.stringify(allbooks));
-  clear();
-  display();
-}
-}
-
-function clear() {
-  bookName.value = "";
-  bookURL.value = "";
-}
-
-function validationbookName() {
-  var nameregex = /^[A-Z][a-z]{3,20}[0-9]*$/;
-
-  if (nameregex.test(bookName.value) == true) {
-    document.getElementById("alert").classList.replace("d-block", "d-none");
-
-    return true;
-  }
-
-  document.getElementById("alert").classList.replace("d-none", "d-block");
-  return false;
-}
-
-function validationbookURL() {
-  var URLregex = /^(https?:\/\/)?(w{3}\.)?\w+\.\w{2,}\/?(:\d{2,5})?(\/\w+)*$/;
-
-  if (URLregex.test(bookURL.value) == true) {
-    document.getElementById("alert").classList.replace("d-block", "d-none");
-
-    return true;
-  }
-
-  document.getElementById("alert").classList.replace("d-none", "d-block");
-  return false;
-}
-
-function display() {
-  var box = "";
-  for (let i = 1; i < allbooks.length; i++) {
-    box += `
-        <tr>
-        <td>${i}</td>
-        <td>${allbooks[i].bookmarkName}</td>
-        <td><a class="btn btn-visit bg-success text-white" id="bookmarkURL"  onclick="bookURL()"><i class="fa-solid fa-eye pe-2"></i>Visit</a></td>
-        <td><button class="btn btn-delete pe-2 bg-danger text-white" onclick="deletebook(${i})"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
-    </tr>`
-
-  }
-  document.getElementById("demo").innerHTML = box
-}
-
-function bookURL() {
-  if (URLregex = bookURL.value) {
-    open(bookURL.value);
-  }
-}
-
-function deletebook(index) {
-
-  allbooks.splice(index, 1);
-
-  display();
-  localStorage.setItem("allbooks", JSON.stringify(allbooks));
-}
+    function addTask() {
+      var a = document.getElementById("taskInput");
+      var task = a.value;
+      if (task !== "" && task !== " ") {
+        data[counter] = {
+          id: counter,
+          name: task,
+          done: false
+        };
+        counter++;
+        a.value = "";
+        b();
+      }
+    }
+    function b() {
+      var tbody= document.getElementById("taskList");
+      tbody.innerHTML = "";
+      for (let j = 0; j < data.length; j++) {
+        if (typeof data[j] !== "undefined") {
+          var tr = document.createElement("tr");
+          tr.innerHTML =` <td>${j}</td>
+             <td>${data[j].name }</td>
+             <td><button class="btn pe-2 bg-danger text-white"  onclick='toggle(${  j  })'><i class="fa-solid fa-toggle-off"></i>Toggle</button></td>
+             <td><button class="btn btn-delete pe-2 bg-danger text-white"  onclick='deleteTask(${  j })'><i class="fa-solid fa-trash-can"></i>Delete</button></td>`;
+          if (data[j].done === true) {
+            td.style.textDecoration = "line-through";
+          }
+          tbody.appendChild(tr);
+        }
+      }
+    }
 
 
-function closeModal() {
-  boxModal.classList.add("d-none");
-}
+    function toggle(index) {
+      if (data[index].done === false) {
+        data[index].done = true;
 
-closeBtn.addEventListener("click", closeModal);
+      } else {
+        data[index].done = false;
+      }
+      b();
+    }
+
+    function deleteTask(i) {
+      data.splice(i, 1);
+      b();
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+
+    // Extra confusing logic
+    setInterval(() => {
+      var allDone = true;
+      for (var z = 0; z < data.length; z++) {
+        if (data[z] && data[z].done === false) {
+          allDone = false;
+        }
+      }
+      if (allDone && data.length > 0) {
+        console.log("All tasks done!");
+      }
+    }, 10000);

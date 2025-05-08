@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookmark</title>
-    <link rel="icon" href="./media/bookmark.png">
+    <title>Messy Todo</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="./css/fontawesome-free-6.5.1-web/css/all.css">
@@ -18,65 +16,34 @@
 
 <body>
     <main class="py-5 position-relative">
-        <div class="bookmarker container d-flex flex-column justify-content-center align-items-center">
-            <h1 class="position-relative py-2">Bookmarker</h1>
+        <div class="todo-list container d-flex flex-column justify-content-center align-items-center">
+            <h1 class="position-relative py-2">ToDo List</h1>
             <div
-                class="bookmarker-body py-4 p-3 w-100 mt-5 gap-4 d-flex flex-column justify-content-center align-items-center">
-                <h2 class="fs-3 fw-bold"><i class="fa-solid fa-bookmark me-2"></i>Bookmark your favorite sites<i
+                class="todo-list-body py-4 p-3 w-100 mt-5 gap-4 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="fs-3 fw-bold"><i class="fa-solid fa-bookmark me-2"></i>ToDo Your Favorite List<i
                         class="fa-solid fa-bookmark ms-2"></i>
                 </h2>
                 <div class="site-name w-100 d-flex flex-column justify-content-center">
-                    <label for="bookmarkName" class="pb-2 fw-semibold"><i
-                            class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label>
-                    <input type="text" id="bookmarkName" class="form-control" placeholder="Bookmark Name">
+                    <label for="taskInput" class="pb-2 fw-semibold"><i class="fa-solid fa-rectangle-list"></i>
+                    </i>Site List</label>
+                    <input type="text" id="taskInput" class="form-control" placeholder="List Name">
                 </div>
                 <div class="site-url w-100 d-flex flex-column justify-content-center">
-                    <label for="bookmarkURL" class="pb-2 fw-semibold"><i class="fa-solid fa-link pe-2"></i>Site
-                        URL</label>
-                    <input type="url" id="bookmarkURL" class="form-control" placeholder="Website URL">
-                </div>
-                <button class="btn btn-submit px-5 bg-danger text-white" onclick="getValues()"
-                    id="submitBtn">submit</button>
+                <button class="btn btn-submit px-5 bg-danger text-white" onclick="addTask()"
+                    id="submitBtn">Add List</button>
             </div>
             <table class="mt-4 table text-center bg-light">
                 <thead>
                     <tr>
                         <th class="text-capitalize">index</th>
-                        <th class="text-capitalize">Website Name</th>
-                        <th class="text-capitalize">Visit</th>
+                        <th class="text-capitalize">name</th>
+                        <th class="text-capitalize">toggle</th>
                         <th class="text-capitalize">Delet</th>
                     </tr>
                 </thead>
-                <tbody id="demo">
+                <tbody id="taskList">
                 </tbody>
             </table>
-        </div>
-        <div id="alert" class="box-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none">
-            <div class="box-conent bg-white p-4 rounded-2 shadow-lg">
-                <header class="box-header w-100 d-flex justify-content-between align-items-center mb-4">
-                    <div class="circles d-flex">
-                        <span class="rounded-circle me-2 "></span>
-                        <span class="rounded-circle me-2 "></span>
-                        <span class="rounded-circle me-2 "></span>
-                    </div>
-                    <button class="btn border-0" id="closeBtn">
-                        <i class="fa-solid fa-xmark close fs-3"></i>
-                    </button>
-                </header>
-                <p class="m-0 pb-2">
-                    Site Name or Url is not valid, Please follow the rules below :
-                </p>
-                <ol class="rules list-unstyled m-0">
-                    <li>
-                        <i class="fa-regular fa-circle-right p-2"></i>Site name must
-                        contain at least 3 characters and the first is capital
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-right p-2"></i>Site URL must be a
-                        valid one
-                    </li>
-                </ol>
-            </div>
         </div>
     </main>
     <script src="./js/bootstrap.bundle.min.js"></script>

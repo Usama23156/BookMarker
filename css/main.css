@@ -26,29 +26,15 @@ main h1::after {
     z-index:-1;
     transition: height 350ms;
 }
-.bookmarker-body {
+.todo-list-body {
     border-width: 2px 0 2px 0;
     border-style: dotted;
     border-color: #352e28;
 }
-.bookmarker-body h2{
+.todo-list-body h2{
     font-family: "Righteous", cursive;
     font-size: 25px;
     background-image: linear-gradient(to right, #3ca55c, #b5ac49);
     background-clip:text;
     -webkit-text-fill-color: transparent;
-}
-.circles span:nth-child(1) {
-    background-color: #f15f5d;
-}
-.circles span:nth-child(2) {
-    background-color: #febe2e;
-}
-.circles span:nth-child(3) {
-    background-color: #4db748;
-}
-.circles span {
-    display: block;
-    width: 20px;
-    height: 20px;
 }
